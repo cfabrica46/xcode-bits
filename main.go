@@ -9,10 +9,10 @@ import (
 
 const (
 	admin    = 1
-	weight   = 62
-	itsMayor = 64
-	itsMale  = 128
-	itsHuman = 256
+	weight   = 1<<5 + 1<<4 + 1<<3 + 1<<2 + 1<<1
+	itsMayor = 1 << 6
+	itsMale  = 1 << 7
+	itsHuman = 1 << 8
 )
 
 func main() {
@@ -26,17 +26,16 @@ func main() {
 		log.Fatal(err)
 	}
 
-	if message > 511 || message < 0 {
+	fmt.Printf("Original Value is %s\n", strconv.FormatInt(int64(message), 2))
+
+	if message >= 1<<9 || message < 0 {
 		log.Fatal("arg invalid")
 	}
-
-	fmt.Println(strconv.FormatInt(int64(message), 2))
 
 	if message&admin == admin {
 		fmt.Println("its admin")
 	}
 
-	fmt.Println(strconv.FormatInt(int64(message&weight), 2))
 	switch message & weight {
 	case 2:
 		fmt.Println("your weight its 1 kg")
@@ -63,4 +62,9 @@ func main() {
 	} else {
 		fmt.Println("is animal")
 	}
+
+	// fmt.Println(weight & 10)
+	currentWeight := strconv.FormatInt(int64((weight&message)>>1), 2)
+
+	fmt.Printf("Your weight is %skg\n", currentWeight)
 }
