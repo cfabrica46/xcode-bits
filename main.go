@@ -8,11 +8,16 @@ import (
 )
 
 const (
-	admin    = 1
-	weight   = 1<<5 + 1<<4 + 1<<3 + 1<<2 + 1<<1
-	itsMayor = 1 << 6
-	itsMale  = 1 << 7
-	itsHuman = 1 << 8
+	//admin. bits 9
+	admin = 1 << 0
+	//weight. bits 4:8
+	weight = 1<<5 + 1<<4 + 1<<3 + 1<<2 + 1<<1
+	//admin. bits 3
+	isMayor = 1 << 6
+	//admin. bits 2
+	isMale = 1 << 7
+	//admin. bits 1
+	isHuman = 1 << 8
 )
 
 func main() {
@@ -32,31 +37,23 @@ func main() {
 		log.Fatal("arg invalid")
 	}
 
-	if message&admin == admin {
-		fmt.Println("its admin")
-	}
+	fmt.Printf("Is a human:\t\t%t\n", message&isHuman == isHuman)
 
-	if message&itsMayor == itsMayor {
-		fmt.Println("is mayor de edad")
-	} else {
-		fmt.Println("isn't mayor de edad")
-	}
+	fmt.Printf("Is a animal:\t\t%t\n", message&isHuman == 0)
 
-	if message&itsMale == itsMale {
-		fmt.Println("is male")
-	} else {
-		fmt.Println("is female")
-	}
+	//---
+	fmt.Printf("Is a male:\t\t%t\n", message&isMale == isMale)
 
-	if message&itsHuman == itsHuman {
-		fmt.Println("is human")
-	} else {
-		fmt.Println("is animal")
-	}
+	fmt.Printf("Is a female:\t\t%t\n", message&isMale == 0)
 
-	// fmt.Println(weight & 10)
-	// currentWeight := strconv.FormatInt(int64((weight&message)>>1), 2)
+	//---
+	fmt.Printf("Is of legal age:\t%t\n", message&isMayor == isMayor)
 
+	//---
 	currentWeight := (weight & message) >> 1
-	fmt.Printf("Your weight is %dkg\n", currentWeight)
+	fmt.Printf("Your weight is:\t\t%dkg\n", currentWeight)
+
+	//---
+	fmt.Printf("Is an administrator:\t%t\n", message&admin == admin)
+
 }
