@@ -55,7 +55,8 @@ func main() {
 	}
 
 	// fmt.Println(weight & 10)
-	currentWeight := strconv.FormatInt(int64((weight&message)>>1), 2)
+	// currentWeight := strconv.FormatInt(int64((weight&message)>>1), 2)
 
-	fmt.Printf("Your weight is %skg\n", currentWeight)
+	currentWeight := (weight & message) >> 1
+	fmt.Printf("Your weight is %dkg\n", currentWeight)
 }
