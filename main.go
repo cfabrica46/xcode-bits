@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+//The project handles a 9-bit scheme: 000000000
 const (
 	//admin. bits 9
 	admin = 1 << 0
