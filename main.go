@@ -36,15 +36,6 @@ func main() {
 		fmt.Println("its admin")
 	}
 
-	switch message & weight {
-	case 2:
-		fmt.Println("your weight its 1 kg")
-	case 4:
-		fmt.Println("your weight its 10 kg")
-	case 6:
-		fmt.Println("your weight its 11 kg")
-	}
-
 	if message&itsMayor == itsMayor {
 		fmt.Println("is mayor de edad")
 	} else {
