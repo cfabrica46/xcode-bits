@@ -34,7 +34,7 @@ func main() {
 
 	fmt.Printf("Original Value is %s\n", strconv.FormatInt(int64(message), 2))
 
-	if message >= 1<<9 || message < 0 {
+	if message >= 1<<9 || message <= 0 {
 		log.Fatal("arg invalid")
 	}
 
