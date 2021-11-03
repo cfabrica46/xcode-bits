@@ -6,38 +6,56 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/spf13/cobra"
 )
+
+func isInputFromPipe() (check bool, err error) {
+	fileInfo, err := os.Stdin.Stat()
+	if err != nil {
+		return
+	}
+
+	check = fileInfo.Mode()&os.ModeCharDevice == 0
+	return
+}
 
 var decodeCmd = &cobra.Command{
 	Use:   "decode",
 	Short: "Decode allows you to decode an integer and give you your data in strings",
 	Run: func(cmd *cobra.Command, args []string) {
 		var valueToDecode int
-		var valuePipe string
+		// var valuePipe string
 		var err error
 
-		scanner := bufio.NewScanner(os.Stdin)
+		isPipe, err := isInputFromPipe()
+		if err != nil {
+			log.Fatal(err)
+		}
 
 		if len(args) == 0 {
-			fmt.Println("a")
-			if scanner.Scan() {
-				fmt.Println("c")
-				valuePipe = scanner.Text()
-				valueToDecode, err = strconv.Atoi(valuePipe)
+			if isPipe {
+				reader := bufio.NewReader(os.Stdin)
+				valueBytes, err := reader.ReadString('\n')
 				if err != nil {
 					log.Fatal(err)
 				}
-			}
-			fmt.Println("b")
-			if err := scanner.Err(); err != nil {
+
+				valueString := strings.TrimSuffix(string(valueBytes), "\n")
+
+				valueToDecode, err = strconv.Atoi(valueString)
+				if err != nil {
+					log.Fatal(err)
+				}
+			} else {
 				fmt.Printf("Value: [ 1 - 4095 ]\n> ")
 				_, err = fmt.Scan(&valueToDecode)
 				if err != nil {
 					log.Fatal(err)
 				}
 			}
+
 		} else {
 			valueToDecode, err = strconv.Atoi(args[0])
 			if err != nil {
