@@ -52,6 +52,5 @@ var decodeCmd = &cobra.Command{
 		fmt.Printf("Your weight is:\t\t%dkg\n", currentWeight)
 
 		fmt.Printf("Is an administrator:\t%t\n", valueToDecode&isAdmin == isAdmin)
-
 	},
 }
