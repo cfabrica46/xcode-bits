@@ -26,7 +26,7 @@ const (
 	isHuman = 1 << 8
 )
 
-var rootCmd = &cobra.Command{}
+var rootCmd = &cobra.Command{Use: "xcode-bits"}
 
 func init() {
 	rootCmd.AddCommand(decodeCmd)

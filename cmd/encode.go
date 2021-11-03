@@ -13,6 +13,10 @@ var encodeCmd = &cobra.Command{
 	Short: "Encode will return an integer which will be the encoding of the data entered",
 	Run: func(cmd *cobra.Command, args []string) {
 
+		if len(args) != 0 {
+			log.Fatal("arg invalid")
+		}
+
 		if int(weight) <= 0 || int(weight) > 31 {
 			fmt.Printf("weight: [ 1 - 31 ]\n> ")
 			_, err := fmt.Scan(&weight)
