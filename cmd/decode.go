@@ -38,19 +38,15 @@ var decodeCmd = &cobra.Command{
 
 		fmt.Printf("Is a animal:\t\t%t\n", valueToDecode&isHuman == 0)
 
-		//---
 		fmt.Printf("Is a male:\t\t%t\n", valueToDecode&isMale == isMale)
 
 		fmt.Printf("Is a female:\t\t%t\n", valueToDecode&isMale == 0)
 
-		//---
 		fmt.Printf("Is of legal age:\t%t\n", valueToDecode&isLegal == isLegal)
 
-		//---
 		currentWeight := (int(yourWeight) & valueToDecode) >> 1
 		fmt.Printf("Your weight is:\t\t%dkg\n", currentWeight)
 
-		//---
 		fmt.Printf("Is an administrator:\t%t\n", valueToDecode&isAdmin == isAdmin)
 
 	},
