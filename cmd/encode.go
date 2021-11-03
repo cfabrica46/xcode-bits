@@ -62,7 +62,7 @@ var encodeCmd = &cobra.Command{
 			}
 		}
 
-		result |= weight << 1
+		result |= int(weight) << 1
 
 		if administrator {
 			result |= isAdmin
