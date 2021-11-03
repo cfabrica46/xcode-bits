@@ -17,13 +17,13 @@ const (
 	//admin. bits 9
 	isAdmin = 1 << 0
 	//weight. bits 4:8
-	yourWeight = 1<<5 + 1<<4 + 1<<3 + 1<<2 + 1<<1
+	yourWeight = 1<<8 + 1<<7 + 1<<6 + 1<<5 + 1<<4 + 1<<3 + 1<<2 + 1<<1
 	//admin. bits 3
-	isLegal = 1 << 6
+	isLegal = 1 << 9
 	//admin. bits 2
-	isMale = 1 << 7
+	isMale = 1 << 10
 	//admin. bits 1
-	isHuman = 1 << 8
+	isHuman = 1 << 11
 )
 
 var rootCmd = &cobra.Command{Use: "xcode-bits"}

@@ -28,7 +28,7 @@ var decodeCmd = &cobra.Command{
 			}
 		}
 
-		if valueToDecode >= 1<<9 || valueToDecode <= 0 {
+		if valueToDecode >= 1<<12 || valueToDecode <= 0 {
 			log.Fatal("arg invalid")
 		}
 
