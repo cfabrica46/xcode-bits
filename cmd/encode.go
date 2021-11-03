@@ -30,48 +30,48 @@ var encodeCmd = &cobra.Command{
 		var cliResponse string
 
 		if human {
-			result += isHuman
+			result |= isHuman
 		} else {
 			fmt.Printf("You are human? [ Y / N ]\n> ")
 			fmt.Scan(&cliResponse)
 			cliResponse = strings.ToUpper(cliResponse)
 			if cliResponse == "Y" {
-				result += isHuman
+				result |= isHuman
 			}
 		}
 
 		if male {
-			result += isMale
+			result |= isMale
 		} else {
 			fmt.Printf("You are male? [ Y / N ]\n> ")
 			fmt.Scan(&cliResponse)
 			cliResponse = strings.ToUpper(cliResponse)
 			if cliResponse == "Y" {
-				result += isMale
+				result |= isMale
 			}
 		}
 
 		if legal {
-			result += isLegal
+			result |= isLegal
 		} else {
 			fmt.Printf("You are legal age? [ Y / N ]\n> ")
 			fmt.Scan(&cliResponse)
 			cliResponse = strings.ToUpper(cliResponse)
 			if cliResponse == "Y" {
-				result += isLegal
+				result |= isLegal
 			}
 		}
 
-		result += weight << 1
+		result |= weight << 1
 
 		if administrator {
-			result += isAdmin
+			result |= isAdmin
 		} else {
 			fmt.Printf("You are an administrator? [ Y / N ]\n> ")
 			fmt.Scan(&cliResponse)
 			cliResponse = strings.ToUpper(cliResponse)
 			if cliResponse == "Y" {
-				result += isAdmin
+				result |= isAdmin
 			}
 		}
 
