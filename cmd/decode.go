@@ -44,7 +44,7 @@ var decodeCmd = &cobra.Command{
 
 		fmt.Printf("Is of legal age:\t%t\n", valueToDecode&isLegal == isLegal)
 
-		currentWeight := (int(yourWeight) & valueToDecode) >> 1
+		currentWeight := yourWeight & valueToDecode >> 1
 		fmt.Printf("Your weight is:\t\t%dkg\n", currentWeight)
 
 		fmt.Printf("Is an administrator:\t%t\n", valueToDecode&isAdmin == isAdmin)

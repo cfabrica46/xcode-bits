@@ -17,7 +17,7 @@ var encodeCmd = &cobra.Command{
 			log.Fatal("arg invalid")
 		}
 
-		if int(weight) <= 0 || int(weight) > 31 {
+		if weight <= 0 || weight > 31 {
 			fmt.Printf("weight: [ 1 - 31 ]\n> ")
 			_, err := fmt.Scan(&weight)
 			if err != nil {
@@ -62,7 +62,7 @@ var encodeCmd = &cobra.Command{
 			}
 		}
 
-		result += int(weight) << 1
+		result += weight << 1
 
 		if administrator {
 			result += isAdmin
