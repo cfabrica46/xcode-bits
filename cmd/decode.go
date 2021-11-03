@@ -34,9 +34,17 @@ var decodeCmd = &cobra.Command{
 
 		fmt.Printf("Original Value is %s\n", strconv.FormatInt(int64(valueToDecode), 2))
 
-		fmt.Printf("Is a human:\t\t%t\n", valueToDecode&isHuman == isHuman)
+		if valueToDecode&isHuman == isHuman {
+			fmt.Printf("Is a human or animal?\t%s\n", "HUMAN")
+		} else {
+			fmt.Printf("Is a human or animal?\t%s\n", "ANIMAL")
+		}
 
-		fmt.Printf("Is a animal:\t\t%t\n", valueToDecode&isHuman == 0)
+		if valueToDecode&isMale == isMale {
+			fmt.Printf("Is a male or female?\t%s\n", "MALE")
+		} else {
+			fmt.Printf("Is a male or female?\t%s\n", "FEMALE")
+		}
 
 		fmt.Printf("Is a male:\t\t%t\n", valueToDecode&isMale == isMale)
 
