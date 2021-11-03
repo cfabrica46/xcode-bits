@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"strconv"
@@ -36,8 +36,7 @@ var decodeCmd = &cobra.Command{
 
 		if len(args) == 0 {
 			if isPipe {
-				reader := bufio.NewReader(os.Stdin)
-				valueBytes, err := reader.ReadString('\n')
+				valueBytes, err := io.ReadAll(os.Stdin)
 				if err != nil {
 					log.Fatal(err)
 				}
