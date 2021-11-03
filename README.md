@@ -16,4 +16,4 @@
 - M flag its for male=true
 - L flag its for legal age=true
 - A flag its for administrator=true
-- W flag default value is 0 and maximum value is 31
+- W flag default value is 0 and maximum value is 255

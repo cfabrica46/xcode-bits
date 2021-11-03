@@ -35,7 +35,7 @@ func init() {
 	encodeCmd.Flags().BoolVarP(&human, "isHuman", "H", false, "is a human or animal?")
 	encodeCmd.Flags().BoolVarP(&male, "isMale", "M", false, "is a male or female?")
 	encodeCmd.Flags().BoolVarP(&legal, "isLegal", "L", false, "is of legal age?")
-	encodeCmd.Flags().IntVarP(&weight, "weight", "W", 0, "how much it weighs (max weight is 31)")
+	encodeCmd.Flags().IntVarP(&weight, "weight", "W", 0, "how much it weighs (max weight is 255)")
 	encodeCmd.PersistentFlags().BoolVarP(&administrator, "isAdministrator", "A", false, "is an administrator?")
 }
 
