@@ -12,11 +12,11 @@ var legal bool
 var weight int
 var administrator bool
 
-//The project handles a 9-bit scheme: 000000000
+//The project handles a 12-bit scheme: 000000000
 const (
-	//admin. bits 9
+	//admin. bits 12
 	isAdmin = 1 << 0
-	//weight. bits 4:8
+	//weight. bits 4:11
 	yourWeight = 1<<8 + 1<<7 + 1<<6 + 1<<5 + 1<<4 + 1<<3 + 1<<2 + 1<<1
 	//admin. bits 3
 	isLegal = 1 << 9

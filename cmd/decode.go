@@ -16,7 +16,7 @@ var decodeCmd = &cobra.Command{
 		var err error
 
 		if len(args) == 0 {
-			fmt.Printf("Value: [ 1 - 511 ]\n> ")
+			fmt.Printf("Value: [ 1 - 4095 ]\n> ")
 			_, err = fmt.Scan(&valueToDecode)
 			if err != nil {
 				log.Fatal(err)

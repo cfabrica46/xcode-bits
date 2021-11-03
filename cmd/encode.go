@@ -18,7 +18,7 @@ var encodeCmd = &cobra.Command{
 		}
 
 		if weight <= 0 || weight > 31 {
-			fmt.Printf("weight: [ 1 - 31 ]\n> ")
+			fmt.Printf("weight: [ 1 - 255 ]\n> ")
 			_, err := fmt.Scan(&weight)
 			if err != nil {
 				log.Fatal(err)
