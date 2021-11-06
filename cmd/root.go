@@ -17,7 +17,7 @@ const (
 	//admin. bits 12
 	isAdmin = 1 << 0
 	//weight. bits 4:11
-	yourWeight = 1<<8 + 1<<7 + 1<<6 + 1<<5 + 1<<4 + 1<<3 + 1<<2 + 1<<1
+	yourWeight = 1<<8 | 1<<7 | 1<<6 | 1<<5 | 1<<4 | 1<<3 | 1<<2 | 1<<1
 	//admin. bits 3
 	isLegal = 1 << 9
 	//admin. bits 2
